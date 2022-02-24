@@ -15,6 +15,11 @@ conda activate raft
 conda install pytorch=1.6.0 torchvision=0.7.0 cudatoolkit=10.1 matplotlib tensorboard scipy opencv -c pytorch
 ```
 
+Installing through pip
+```
+pip install torch==1.6.0+cu101 torchvision==0.7.0+cu101 -f https://download.pytorch.org/whl/torch_stable.html
+```
+
 ## Demos
 Pretrained models can be downloaded by running
 ```Shell
