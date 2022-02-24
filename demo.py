@@ -23,7 +23,7 @@ def load_image(imfile):
     return img[None].to(DEVICE)
 
 
-def viz(img, flo):
+def viz(img, flo, imfile1):
     img = img[0].permute(1,2,0).cpu().numpy()
     flo = flo[0].permute(1,2,0).cpu().numpy()
     
@@ -35,8 +35,14 @@ def viz(img, flo):
     # plt.imshow(img_flo / 255.0)
     # plt.show()
 
-    cv2.imshow('image', img_flo[:, :, [2,1,0]]/255.0)
-    cv2.waitKey()
+
+    # cv2.imshow('image', img_flo[:, :, [2,1,0]])
+    # cv2.waitKey()
+
+    
+    new_imfile1 = "_raft".join(os.path.splitext(imfile1))
+    cv2.imwrite(new_imfile1, img_flo[:, :, [2,1,0]])
+    print(new_imfile1)
 
 
 def demo(args):
@@ -60,7 +66,7 @@ def demo(args):
             image1, image2 = padder.pad(image1, image2)
 
             flow_low, flow_up = model(image1, image2, iters=20, test_mode=True)
-            viz(image1, flow_up)
+            viz(image1, flow_up, imfile1)
 
 
 if __name__ == '__main__':
