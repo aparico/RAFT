@@ -1,5 +1,8 @@
+
+I forked this to process a batch of images at a time. 
+
 # RAFT
-This repository contains the source code for our paper:
+This repository contains the source code for the paper:
 
 [RAFT: Recurrent All Pairs Field Transforms for Optical Flow](https://arxiv.org/pdf/2003.12039.pdf)<br/>
 ECCV 2020 <br/>
