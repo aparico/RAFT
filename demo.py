@@ -8,7 +8,7 @@ import glob
 import numpy as np
 import torch
 from PIL import Image
-
+from natsort import natsorted
 from raft import RAFT
 from utils import flow_viz
 from utils.utils import InputPadder
@@ -57,7 +57,7 @@ def demo(args):
         images = glob.glob(os.path.join(args.path, '*.png')) + \
                  glob.glob(os.path.join(args.path, '*.jpg'))
         
-        images = sorted(images)
+        images = natsorted(images)
         for imfile1, imfile2 in zip(images[:-1], images[1:]):
             image1 = load_image(imfile1)
             image2 = load_image(imfile2)
